@@ -54,7 +54,7 @@ RedapecommentsGenerator.prototype.askFor = function askFor() {
   {
     type: 'input',
     name: 'description',
-    message: 'Description'
+    message: 'Function feature description'
   },
   {
     type: 'expand',
@@ -96,7 +96,7 @@ RedapecommentsGenerator.prototype.getParams = function getParams() {
       {
         type: 'input',
         name: 'description',
-        message: 'Description',
+        message: 'Parameter description',
         when: function(answers) {
           return answers.name.length;
         }
@@ -149,7 +149,7 @@ RedapecommentsGenerator.prototype.returns = function returns() {
     {
       type: 'input',
       name: 'description',
-      message: 'Description'
+      message: 'Description of ' + (this.generalAnswers.sync == 'Synchronous' ? 'returned object' : 'callback parameter')
     }
   ];
   this.prompt(prompts, function(props){

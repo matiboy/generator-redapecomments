@@ -11,12 +11,10 @@
 <% if(returns.type == 'Array') { %>
 //      [
 //        
-//      ]
-<% } else if( returns.type == 'Object') { %>
+//      ]<% } else if( returns.type == 'Object') { %>
 //      {
 //        
-//      }
-<% } else { %>
+//      }<% } else { %>
 //      
 <% } %><% if(generalAnswers.area == 'Public') { %>	<%= generalAnswers.name %>: function(<%= params.joinedParams %>) {
 		<% if(generalAnswers.isSync) { %>return null;<% } else { %>callback( null, null );<% } %>
