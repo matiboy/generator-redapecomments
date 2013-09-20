@@ -58,7 +58,15 @@ RedapecommentsGenerator.prototype.askFor = function askFor() {
   },
   {
     type: 'checkbox',
-    choices: ['async', 'config', 'lodash', 'moment'],
+    choices: [
+      'async',
+      'config',
+      'express',
+      'lodash',
+      'moment',
+      'mongoose',
+      'redis'
+    ],
     name: 'nodeDependencies',
     message: 'Node dependencies'
   },
