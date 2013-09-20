@@ -18,13 +18,8 @@
 //      }
 <% } else { %>
 //      
-<% } %>
-<% if(generalAnswers.area == 'Public') { %>
-	<%= generalAnswers.name %>: function(<%= params.joinedParams %>) {
+<% } %><% if(generalAnswers.area == 'Public') { %>	<%= generalAnswers.name %>: function(<%= params.joinedParams %>) {
 		<% if(generalAnswers.isSync) { %>return null;<% } else { %>callback( null, null );<% } %>
-	},
-<% } else { %>
-var <%= generalAnswers.name %> = function(<%= params.joinedParams %>) {
+	},<% } else { %>var <%= generalAnswers.name %> = function(<%= params.joinedParams %>) { 
 	<% if(generalAnswers.isSync) { %>return null;<% } else { %>callback( null, null );<% } %>
-};
-<% } %>
+};<% } %>

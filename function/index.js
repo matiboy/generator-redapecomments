@@ -9,7 +9,6 @@ var path = require('path')
 
 var RedapecommentsGenerator = module.exports = function RedapecommentsGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
-
   this.on('end', function () {
     // this.installDependencies({ skipInstall: options['skip-install'] });
   });
@@ -160,5 +159,18 @@ RedapecommentsGenerator.prototype.returns = function returns() {
 };
 
 RedapecommentsGenerator.prototype.createFile = function createFile() {
-  this.template('function.js', 'blop.js');
+  // Compile the template
+  var asString = this.engine(this.readFileAsString(this.sourceRoot() + '/function.js'), this);
+  // Open the file
+  var original = this.readFileAsString(this.generalAnswers.file);
+  var modified;
+  // Which area?
+  if(this.generalAnswers.area == 'Private') {
+    modified = original.replace( '// Private\n// -------', '// Private\n// -------\n' + asString + '\n');
+  } else if( this.generalAnswers.area == 'Public' ) {
+    modified = original.replace( 'module.exports = {', 'module.exports = {\n\t' + asString  + '\n');
+  } else {
+    modified = original + '\n' + asString;
+  }
+  this.write(this.generalAnswers.file, modified);
 };
