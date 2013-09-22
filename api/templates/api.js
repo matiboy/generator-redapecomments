@@ -19,6 +19,6 @@
 //
 // Status:
 // <% _.each(status, function(item) { %>
-// - <%= item.name %> // <%= item.description %> <% }); %>
+// - <%= item.name %>: <%= item.description %> <% }); %>
 //
 app.<%= generalAnswers.method %>('<%= generalAnswers.url %>', <%= generalAnswers.function %>);
