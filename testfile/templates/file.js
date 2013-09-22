@@ -4,6 +4,12 @@
 // Authors: <%= answers.author %>
 //
 // <%= answers.description %>
+// 
+// Test file for <%= features.main.name %>
+//
+// ###Sub features
+<% _.each(features.sub, function(item) { %>// - item.name
+<% }); %>
 
 // Dependencies
 // ------------
@@ -18,8 +24,16 @@
 // Private
 // -------
 
-// Public
-// ------
-var exp = module.exports = {
+// Tests
+// -----
+// ###Main feature
+// <%= features.main.description %>
+describe('<%= features.main.name %>', function() {
+  <% _.each(features.sub, function(item){ %>// ####<%= item.name %>
+  // <%= item.description %>
+  describe('<%= item.name %>', function() {
 
-};
+  });
+
+  <% }); %>
+});

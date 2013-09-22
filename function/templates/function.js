@@ -7,8 +7,7 @@
 //  - <%= item.name %> // <%= item.description %><% }); %>
 // 
 // <% if(generalAnswers.isSync) { %>Returns: <% } else { %>Calls back with: <% } %><%= returns.type %><% if(returns.type == 'Array') { %> of <%= returns.subtype %><% } %> <%= returns.description %>
-// 
-<% if(returns.type == 'Array') { %>
+// <% if(returns.type == 'Array') { %>
 //      [
 //        
 //      ]<% } else if( returns.type == 'Object') { %>
