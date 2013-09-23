@@ -1,4 +1,4 @@
-// #####<a id="<%= generalAnswers.id %>""><%= generalAnswers.url %></a>
+// ####<a id="<%= generalAnswers.id %>""><%= generalAnswers.url %></a>
 // <%= generalAnswers.METHOD %>
 // <%= generalAnswers.description %>
 //
