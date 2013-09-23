@@ -166,7 +166,7 @@ RedapecommentsGenerator.prototype.createFile = function createFile() {
   var modified;
   // Which area?
   if(this.generalAnswers.area == 'Private') {
-    modified = original.replace( '// Private\n// -------', '// Private\n// -------\n' + asString + '\n');
+    modified = original.replace( '// -------', '// -------\n' + asString + '\n');
   } else if( this.generalAnswers.area == 'Public' ) {
     modified = original.replace( 'module.exports = {', 'module.exports = {\n\t' + asString  + '\n');
   } else {
