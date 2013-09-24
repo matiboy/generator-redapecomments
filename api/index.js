@@ -26,12 +26,21 @@ RedapecommentsGenerator.prototype.askFor = function askFor() {
   var files = this._.filter(fs.readdirSync('.'), function(item) {
     return path.extname(item) == '.js';
   });
+  var functionfiles = this._.filter(fs.readdirSync('./routes'), function(item) {
+    return path.extname(item) == '.js';
+  });
   var prompts = [
   {
     type: 'list',
     name: 'file',
-    message: 'Choose file',
+    message: 'File in which to include API',
     choices: files
+  },
+  {
+    type: 'list',
+    name: 'functionfile',
+    message: 'File in which to add function',
+    choices: functionfiles
   },
   {
     type: 'list',
@@ -182,4 +191,11 @@ RedapecommentsGenerator.prototype.createFile = function createFile() {
   var modified;
   modified = original + '\n\n' + asString;
   this.write(this.generalAnswers.file, modified);
+
+  // Add the function into the function file
+  asString = this.engine(this.readFileAsString(this.sourceRoot() + '/function.js'), this);
+  original = this.readFileAsString('routes/' + this.generalAnswers.functionfile);
+  this.htmlfile = this.generalAnswers.file.replace('.js', '.html');
+  modified = original.replace('module.exports = {', 'module.exports = {\n' + asString );
+  this.write('routes/' + this.generalAnswers.functionfile, modified);
 };
