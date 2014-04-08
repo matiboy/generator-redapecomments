@@ -26,13 +26,13 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-redapecomments from npm, run:
 
 ```
-$ npm install -g generator-redapecomments
+$ npm install -g git://github.com/yujinlim/generator-redapecomments.git
 ```
 
 Finally, initiate the generator:
 
 ```
-$ yo redapecomments
+$ yo redapecomments:[file|api|function]
 ```
 
 ### Getting To Know Yeoman
